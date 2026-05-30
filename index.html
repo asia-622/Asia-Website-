@@ -7,11 +7,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
 <style>
 
@@ -22,10 +19,21 @@
   scroll-behavior:smooth;
 }
 
+:root{
+  --navy:#0B1320;
+  --royal:#2563EB;
+  --sky:#60A5FA;
+  --off:#F8FAFC;
+  --emerald:#10B981;
+  --purple:#8B5CF6;
+  --text:#1F2937;
+  --muted:#6B7280;
+}
+
 body{
   font-family:'Poppins',sans-serif;
-  background:#F8FAFC;
-  color:#1F2937;
+  background:var(--off);
+  color:var(--text);
   overflow-x:hidden;
 }
 
@@ -39,42 +47,24 @@ section{
   padding:100px 0;
 }
 
+/* ── Background blurs ── */
 .bg-blur{
   position:fixed;
   border-radius:50%;
   filter:blur(100px);
   z-index:-1;
+  pointer-events:none;
 }
+.blur1{ width:300px;height:300px;background:#2563eb55;top:-100px;left:-100px; }
+.blur2{ width:300px;height:300px;background:#8B5CF655;right:-100px;top:250px; }
+.blur3{ width:300px;height:300px;background:#10B98155;bottom:-100px;left:35%; }
 
-.blur1{
-  width:300px;
-  height:300px;
-  background:#2563eb55;
-  top:-100px;
-  left:-100px;
-}
-
-.blur2{
-  width:300px;
-  height:300px;
-  background:#8B5CF655;
-  right:-100px;
-  top:250px;
-}
-
-.blur3{
-  width:300px;
-  height:300px;
-  background:#10B98155;
-  bottom:-100px;
-  left:35%;
-}
-
+/* ── Header ── */
 header{
   position:fixed;
   width:100%;
   top:0;
-  background:rgba(255,255,255,0.7);
+  background:rgba(255,255,255,0.75);
   backdrop-filter:blur(10px);
   z-index:1000;
 }
@@ -86,14 +76,8 @@ nav{
   padding:20px 0;
 }
 
-.logo{
-  font-size:32px;
-  font-weight:700;
-}
-
-.logo span{
-  color:#2563EB;
-}
+.logo{ font-size:28px;font-weight:700; }
+.logo span{ color:var(--royal); }
 
 .nav-links{
   display:flex;
@@ -103,14 +87,21 @@ nav{
 
 .nav-links a{
   text-decoration:none;
-  color:#1F2937;
+  color:var(--text);
   font-weight:500;
+  transition:color .3s;
 }
 
+.nav-links a:hover{ color:var(--royal); }
+
+.menu-btn{ display:none;font-size:25px;cursor:pointer; }
+
+/* ── Hero ── */
 .hero{
   min-height:100vh;
   display:flex;
   align-items:center;
+  padding-top:100px;
 }
 
 .hero-content{
@@ -120,95 +111,83 @@ nav{
   align-items:center;
 }
 
-.hero h1{
-  font-size:70px;
-  line-height:1.1;
-}
+.tag{ color:var(--royal);font-weight:600;margin-bottom:15px; }
 
-.hero h1 span{
-  color:#2563EB;
-}
+.hero h1{ font-size:65px;line-height:1.1; }
+.hero h1 span{ color:var(--royal); }
+.hero h2{ margin:20px 0;color:var(--muted); }
+.hero p{ line-height:1.9;margin-bottom:35px;font-size:18px; }
 
-.hero h2{
-  margin:20px 0;
-  color:#6B7280;
-}
-
-.hero p{
-  line-height:1.9;
-  margin-bottom:35px;
-  font-size:18px;
-}
-
-.tag{
-  color:#2563EB;
-  font-weight:600;
-  margin-bottom:15px;
-}
-
-.buttons{
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
-}
+.buttons{ display:flex;gap:15px;flex-wrap:wrap; }
 
 .btn{
   padding:14px 28px;
   border-radius:14px;
   text-decoration:none;
   font-weight:600;
-  transition:0.4s;
+  transition:.4s;
+  display:inline-block;
 }
 
-.primary{
-  background:#2563EB;
-  color:white;
-}
+.primary{ background:var(--royal);color:white; }
+.secondary{ border:1px solid var(--royal);color:var(--royal);background:white; }
+.linkedin{ background:linear-gradient(to right,var(--royal),var(--purple));color:white; }
+.btn:hover{ transform:translateY(-5px); }
 
-.secondary{
-  border:1px solid #2563EB;
-  color:#2563EB;
-  background:white;
-}
+/* ── Profile Avatar (initials) ── */
+.hero-image{ display:flex;justify-content:center; }
 
-.linkedin{
-  background:linear-gradient(to right,#2563EB,#8B5CF6);
-  color:white;
-}
-
-.btn:hover{
-  transform:translateY(-5px);
-}
-
-.hero-image{
-  display:flex;
-  justify-content:center;
-}
-
-.image-box{
-  width:420px;
-  height:420px;
+.avatar-circle{
+  width:380px;
+  height:380px;
   border-radius:50%;
-  overflow:hidden;
+  background:linear-gradient(135deg,var(--royal),var(--purple));
   border:6px solid rgba(255,255,255,0.6);
-  box-shadow:0 20px 50px rgba(0,0,0,0.15);
+  box-shadow:0 20px 50px rgba(37,99,235,0.35);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  position:relative;
+  overflow:hidden;
 }
 
-.image-box img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+.avatar-circle::before{
+  content:'';
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle,rgba(255,255,255,0.12) 0%,transparent 70%);
+  border-radius:50%;
 }
 
+.avatar-initials{
+  font-size:100px;
+  font-weight:800;
+  color:white;
+  letter-spacing:4px;
+  line-height:1;
+  text-shadow:0 4px 20px rgba(0,0,0,0.2);
+}
+
+.avatar-name{
+  font-size:16px;
+  font-weight:600;
+  color:rgba(255,255,255,0.85);
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+/* ── Section title ── */
 .section-title{
   text-align:center;
   margin-bottom:60px;
 }
 
-.section-title h2{
-  font-size:42px;
-}
+.section-title h2{ font-size:42px; }
 
+/* ── About ── */
 .about-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -216,17 +195,39 @@ nav{
   align-items:center;
 }
 
-.about-grid img{
+/* About image replaced with styled card */
+.about-visual{
   width:100%;
   border-radius:25px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.1);
+  background:linear-gradient(135deg,var(--royal),var(--purple));
+  box-shadow:0 20px 50px rgba(37,99,235,0.3);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:60px 40px;
+  gap:16px;
+  min-height:320px;
 }
 
-.about-text p{
-  line-height:1.9;
-  margin-bottom:20px;
+.about-visual .big-initial{
+  font-size:90px;
+  font-weight:800;
+  color:white;
+  line-height:1;
 }
 
+.about-visual .about-label{
+  font-size:15px;
+  font-weight:600;
+  color:rgba(255,255,255,0.85);
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.about-text p{ line-height:1.9;margin-bottom:20px; }
+
+/* ── Skills ── */
 .skills-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -234,13 +235,13 @@ nav{
 }
 
 .skill-card{
-  background:rgba(255,255,255,0.6);
+  background:rgba(255,255,255,0.65);
   backdrop-filter:blur(10px);
   border-radius:20px;
   padding:35px;
   text-align:center;
   box-shadow:0 10px 25px rgba(0,0,0,0.08);
-  transition:0.4s;
+  transition:.4s;
 }
 
 .skill-card:hover{
@@ -248,12 +249,9 @@ nav{
   box-shadow:0 20px 40px rgba(37,99,235,0.2);
 }
 
-.skill-card i{
-  font-size:42px;
-  margin-bottom:15px;
-  color:#2563EB;
-}
+.skill-card i{ font-size:42px;margin-bottom:15px;color:var(--royal); }
 
+/* ── Achievement Cards (NO images) ── */
 .projects-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -265,47 +263,42 @@ nav{
   border-radius:20px;
   overflow:hidden;
   box-shadow:0 10px 30px rgba(0,0,0,0.08);
-  transition:0.4s;
+  transition:.4s;
+  display:flex;
+  flex-direction:column;
 }
 
-.project-card:hover{
-  transform:translateY(-10px);
-}
+.project-card:hover{ transform:translateY(-10px); }
 
-.project-card img{
+/* Icon banner replaces image */
+.project-icon-banner{
   width:100%;
-  height:220px;
-  object-fit:cover;
-}
-
-.project-content{
-  padding:25px;
-}
-
-.project-content h3{
-  margin-bottom:10px;
-}
-
-.project-content p{
-  line-height:1.7;
-  color:#6B7280;
-  margin-bottom:20px;
-}
-
-.project-btn{
-  display:inline-block;
-  padding:10px 18px;
-  border-radius:10px;
-  background:#2563EB;
+  height:140px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:54px;
   color:white;
-  text-decoration:none;
+  background:linear-gradient(135deg,var(--royal),var(--sky));
+  flex-shrink:0;
 }
+
+.project-card:nth-child(2) .project-icon-banner{ background:linear-gradient(135deg,var(--purple),#c084fc); }
+.project-card:nth-child(3) .project-icon-banner{ background:linear-gradient(135deg,#f59e0b,#fb923c); }
+.project-card:nth-child(4) .project-icon-banner{ background:linear-gradient(135deg,var(--emerald),#34d399); }
+.project-card:nth-child(5) .project-icon-banner{ background:linear-gradient(135deg,#ec4899,#f43f5e); }
+.project-card:nth-child(6) .project-icon-banner{ background:linear-gradient(135deg,var(--emerald),var(--royal)); }
+
+.project-content{ padding:25px;flex:1; }
+.project-content h3{ margin-bottom:10px;font-size:18px; }
+.project-content p{ line-height:1.7;color:var(--muted); }
 
 .featured{
-  border:2px solid #10B981;
+  border:2px solid var(--emerald);
   box-shadow:0 0 30px rgba(16,185,129,0.3);
 }
 
+/* ── Education timeline ── */
 .timeline{
   position:relative;
   max-width:800px;
@@ -319,7 +312,7 @@ nav{
   transform:translateX(-50%);
   width:4px;
   height:100%;
-  background:linear-gradient(#2563EB,#60A5FA);
+  background:linear-gradient(var(--royal),var(--sky));
 }
 
 .timeline-item{
@@ -328,14 +321,8 @@ nav{
   position:relative;
 }
 
-.timeline-item:nth-child(odd){
-  left:0;
-  text-align:right;
-}
-
-.timeline-item:nth-child(even){
-  left:50%;
-}
+.timeline-item:nth-child(odd){ left:0;text-align:right; }
+.timeline-item:nth-child(even){ left:50%; }
 
 .timeline-icon{
   position:absolute;
@@ -343,20 +330,16 @@ nav{
   width:50px;
   height:50px;
   border-radius:50%;
-  background:#2563EB;
+  background:var(--royal);
   color:white;
   display:flex;
   justify-content:center;
   align-items:center;
+  box-shadow:0 0 20px rgba(37,99,235,0.4);
 }
 
-.timeline-item:nth-child(odd) .timeline-icon{
-  right:-25px;
-}
-
-.timeline-item:nth-child(even) .timeline-icon{
-  left:-25px;
-}
+.timeline-item:nth-child(odd) .timeline-icon{ right:-25px; }
+.timeline-item:nth-child(even) .timeline-icon{ left:-25px; }
 
 .timeline-content{
   background:white;
@@ -365,6 +348,7 @@ nav{
   box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
+/* ── Contact ── */
 .contact-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -373,106 +357,82 @@ nav{
 
 .contact-card{
   background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
   padding:40px;
   border-radius:20px;
   text-align:center;
-  transition:0.4s;
+  transition:.4s;
   box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
-.contact-card:hover{
-  transform:translateY(-10px);
-}
-
-.contact-card i{
-  font-size:35px;
-  color:#2563EB;
-  margin-bottom:15px;
-}
-
-.contact-card a{
-  text-decoration:none;
-  color:#1F2937;
-}
+.contact-card:hover{ transform:translateY(-10px); }
+.contact-card i{ font-size:35px;color:var(--royal);margin-bottom:15px; }
+.contact-card a{ text-decoration:none;color:var(--text); }
 
 footer{
-  background:#0B1320;
+  background:var(--navy);
   color:white;
   text-align:center;
   padding:30px;
 }
 
+/* ── Scroll animations ── */
+.fade-up,.fade-in{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1s ease;
+}
+.show{ opacity:1;transform:translateY(0); }
+
+/* ── Responsive ── */
 @media(max-width:992px){
+  .hero-content,.about-grid{ grid-template-columns:1fr; }
+  .hero{ text-align:center; }
+  .buttons{ justify-content:center; }
+  .avatar-circle{ width:280px;height:280px; }
+  .avatar-initials{ font-size:72px; }
 
-.hero-content,
-.about-grid{
-  grid-template-columns:1fr;
-}
-
-.hero{
-  text-align:center;
-}
-
-.buttons{
-  justify-content:center;
-}
-
-.timeline::before{
-  left:20px;
-}
-
-.timeline-item{
-  width:100%;
-  left:0 !important;
-  text-align:left !important;
-  padding-left:80px;
-}
-
-.timeline-icon{
-  left:-5px !important;
-}
-
+  .timeline::before{ left:20px; }
+  .timeline-item{
+    width:100%;
+    left:0 !important;
+    text-align:left !important;
+    padding-left:80px;
+    padding-right:0;
+  }
+  .timeline-icon{ left:-5px !important; }
 }
 
 @media(max-width:768px){
-
-.nav-links{
-  display:none;
-}
-
-.hero h1{
-  font-size:50px;
-}
-
-.image-box{
-  width:300px;
-  height:300px;
-}
-
-.section-title h2{
-  font-size:34px;
-}
-
+  .nav-links{
+    position:absolute;
+    top:80px;
+    left:-100%;
+    width:100%;
+    background:white;
+    flex-direction:column;
+    padding:30px;
+    transition:.4s;
+  }
+  .nav-links.active{ left:0; }
+  .menu-btn{ display:block; }
+  .hero h1{ font-size:46px; }
+  .section-title h2{ font-size:32px; }
 }
 
 </style>
-
 </head>
-
 <body>
 
 <div class="bg-blur blur1"></div>
 <div class="bg-blur blur2"></div>
 <div class="bg-blur blur3"></div>
 
+<!-- HEADER -->
 <header>
   <div class="container">
     <nav>
-
-      <div class="logo">
-        Asia<span>Parveen</span>
-      </div>
-
+      <div class="logo">Asia<span>Parveen</span></div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -481,331 +441,235 @@ footer{
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-
+      <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
     </nav>
   </div>
 </header>
 
 <!-- HERO -->
-
 <section class="hero" id="home">
+  <div class="container hero-content">
 
-<div class="container hero-content">
+    <div class="fade-up">
+      <p class="tag">Aspiring Data Analyst</p>
+      <h1>Hi, I'm <span>Asia Parveen</span></h1>
+      <h2>BS Mathematics Student</h2>
+      <p>A highly motivated and detail-oriented BS Mathematics student with strong analytical, logical, and problem-solving abilities. Passionate about data analysis, visualization, and transforming raw data into meaningful insights.</p>
+      <div class="buttons">
+        <a href="#projects" class="btn primary">View My Work</a>
+        <a href="CCCVVVVVVVVV.pdf" download class="btn secondary">Download CV</a>
+        <a href="https://www.linkedin.com/in/asia-parveen-37a502371" target="_blank" class="btn linkedin">LinkedIn</a>
+      </div>
+    </div>
 
-<div>
+    <!-- ✅ FIX 1: Initials avatar instead of broken image -->
+    <div class="hero-image fade-in">
+      <div class="avatar-circle">
+        <span class="avatar-initials">AP</span>
+        <span class="avatar-name">Asia Parveen</span>
+      </div>
+    </div>
 
-<p class="tag">Aspiring Data Analyst</p>
-
-<h1>
-Hi, I'm <span>Asia Parveen</span>
-</h1>
-
-<h2>BS Mathematics Student</h2>
-
-<p>
-A highly motivated and detail-oriented BS Mathematics student with strong analytical, logical, and problem-solving abilities. Passionate about data analysis, visualization, and transforming raw data into meaningful insights.
-</p>
-
-<div class="buttons">
-
-<a href="#projects" class="btn primary">
-View My Work
-</a>
-
-<a href="CCCVVVVVVVVV.pdf" download class="btn secondary">
-Download CV
-</a>
-
-<a href="https://www.linkedin.com/in/asia-parveen-37a502371"
-target="_blank"
-class="btn linkedin">
-LinkedIn
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-image">
-
-<div class="image-box">
-<img src="1111.jpeg" alt="Asia Parveen">
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
 <!-- ABOUT -->
-
 <section id="about">
+  <div class="container">
+    <div class="section-title fade-up">
+      <h2>About Me</h2>
+    </div>
+    <div class="about-grid">
 
-<div class="container">
+      <!-- Styled visual instead of broken image -->
+      <div class="about-visual fade-up">
+        <div class="big-initial">A</div>
+        <div class="about-label">Asia Parveen</div>
+      </div>
 
-<div class="section-title">
-<h2>About Me</h2>
-</div>
+      <div class="about-text fade-up">
+        <p>Skilled in Excel, Python, and computational modeling. Strong interest in data analysis and real-world problem solving.</p>
+        <p>Passionate about turning complex data into meaningful decisions. Motivated, creative, and committed to continuous learning and professional growth.</p>
+      </div>
 
-<div class="about-grid">
-
-<div>
-<img src="1111.jpeg" alt="">
-</div>
-
-<div class="about-text">
-
-<p>
-Skilled in Excel, Python, and computational modeling. Strong interest in data analysis and real-world problem solving.
-</p>
-
-<p>
-Passionate about turning complex data into meaningful decisions. Motivated, creative, and committed to continuous learning and professional growth.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
 
 <!-- SKILLS -->
-
 <section id="skills">
-
-<div class="container">
-
-<div class="section-title">
-<h2>Skills & Experience</h2>
-</div>
-
-<div class="skills-grid">
-
-<div class="skill-card">
-<i class="fa-brands fa-python"></i>
-<h3>Python</h3>
-</div>
-
-<div class="skill-card">
-<i class="fa-solid fa-file-excel"></i>
-<h3>MS Excel</h3>
-</div>
-
-<div class="skill-card">
-<i class="fa-solid fa-file-word"></i>
-<h3>MS Word</h3>
-</div>
-
-<div class="skill-card">
-<i class="fa-solid fa-file-powerpoint"></i>
-<h3>MS PowerPoint</h3>
-</div>
-
-<div class="skill-card">
-<i class="fa-solid fa-comments"></i>
-<h3>Communication</h3>
-</div>
-
-<div class="skill-card">
-<i class="fa-solid fa-brain"></i>
-<h3>Problem Solving</h3>
-</div>
-
-<div class="skill-card">
-<i class="fa-solid fa-users"></i>
-<h3>Teamwork</h3>
-</div>
-
-<div class="skill-card">
-<i class="fa-solid fa-clock"></i>
-<h3>Time Management</h3>
-</div>
-
-<div class="skill-card">
-<i class="fa-solid fa-building-columns"></i>
-<h3>MCB Internship</h3>
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <div class="section-title fade-up"><h2>Skills & Experience</h2></div>
+    <div class="skills-grid">
+      <div class="skill-card fade-up"><i class="fa-brands fa-python"></i><h3>Python</h3></div>
+      <div class="skill-card fade-up"><i class="fa-solid fa-file-excel"></i><h3>MS Excel</h3></div>
+      <div class="skill-card fade-up"><i class="fa-solid fa-file-word"></i><h3>MS Word</h3></div>
+      <div class="skill-card fade-up"><i class="fa-solid fa-file-powerpoint"></i><h3>MS PowerPoint</h3></div>
+      <div class="skill-card fade-up"><i class="fa-solid fa-comments"></i><h3>Communication</h3></div>
+      <div class="skill-card fade-up"><i class="fa-solid fa-brain"></i><h3>Problem Solving</h3></div>
+      <div class="skill-card fade-up"><i class="fa-solid fa-users"></i><h3>Teamwork</h3></div>
+      <div class="skill-card fade-up"><i class="fa-solid fa-clock"></i><h3>Time Management</h3></div>
+      <div class="skill-card fade-up"><i class="fa-solid fa-building-columns"></i><h3>MCB Internship</h3></div>
+    </div>
+  </div>
 </section>
 
-<!-- PROJECTS -->
-
+<!-- ACHIEVEMENTS — ✅ FIX 2: No images, icon banners instead -->
 <section id="projects">
+  <div class="container">
+    <div class="section-title fade-up"><h2>Projects & Achievements</h2></div>
+    <div class="projects-grid">
 
-<div class="container">
+      <div class="project-card fade-up">
+        <div class="project-icon-banner">
+          <i class="fa-solid fa-pen-nib"></i>
+        </div>
+        <div class="project-content">
+          <h3>Graphic Designing</h3>
+          <p>Canva designing certification from Z-S Learning Institute.</p>
+        </div>
+      </div>
 
-<div class="section-title">
-<h2>Projects & Achievements</h2>
-</div>
+      <div class="project-card fade-up">
+        <div class="project-icon-banner">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+        <div class="project-content">
+          <h3>AI Image Generation</h3>
+          <p>AI creative image generation certification.</p>
+        </div>
+      </div>
 
-<div class="projects-grid">
+      <div class="project-card fade-up">
+        <div class="project-icon-banner">
+          <i class="fa-solid fa-film"></i>
+        </div>
+        <div class="project-content">
+          <h3>Video Editing</h3>
+          <p>Professional video editing and multimedia production.</p>
+        </div>
+      </div>
 
-<div class="project-card">
-<img src="22222.jpeg" alt="">
-<div class="project-content">
-<h3>Graphic Designing</h3>
-<p>Canva designing certification from Z-S Learning Institute.</p>
-</div>
-</div>
+      <div class="project-card fade-up">
+        <div class="project-icon-banner">
+          <i class="fa-solid fa-crown"></i>
+        </div>
+        <div class="project-content">
+          <h3>Vice President</h3>
+          <p>Caspam Welfare Council leadership recognition.</p>
+        </div>
+      </div>
 
-<div class="project-card">
-<img src="333333.jpeg" alt="">
-<div class="project-content">
-<h3>AI Image Generation</h3>
-<p>AI creative image generation certification.</p>
-</div>
-</div>
+      <div class="project-card fade-up">
+        <div class="project-icon-banner">
+          <i class="fa-solid fa-medal"></i>
+        </div>
+        <div class="project-content">
+          <h3>Silver Medal</h3>
+          <p>Academic excellence award in matriculation.</p>
+        </div>
+      </div>
 
-<div class="project-card">
-<img src="444444.jpeg" alt="">
-<div class="project-content">
-<h3>Video Editing</h3>
-<p>Professional video editing and multimedia production.</p>
-</div>
-</div>
+      <div class="project-card featured fade-up">
+        <div class="project-icon-banner">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <div class="project-content">
+          <h3>1st Position – Semester 7</h3>
+          <p>Outstanding academic achievement at BZU.</p>
+        </div>
+      </div>
 
-<div class="project-card">
-<img src="ENtrrnship.jpeg" alt="">
-<div class="project-content">
-<h3>Vice President</h3>
-<p>Caspam Welfare Council leadership recognition.</p>
-</div>
-</div>
-
-<div class="project-card">
-<img src="55555555.jpeg" alt="">
-<div class="project-content">
-<h3>Silver Medal</h3>
-<p>Academic excellence award in matriculation.</p>
-</div>
-</div>
-
-<div class="project-card featured">
-<img src="55555555.jpeg" alt="">
-<div class="project-content">
-<h3>1st Position – Semester 7</h3>
-<p>Outstanding academic achievement at BZU.</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
 
 <!-- EDUCATION -->
-
 <section id="education">
+  <div class="container">
+    <div class="section-title fade-up"><h2>Education</h2></div>
+    <div class="timeline">
 
-<div class="container">
+      <div class="timeline-item fade-up">
+        <div class="timeline-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div class="timeline-content">
+          <h3>BS Mathematics – BZU</h3>
+          <p>2022 – 2026</p>
+          <p>CGPA: 3.57 / 4.00</p>
+        </div>
+      </div>
 
-<div class="section-title">
-<h2>Education</h2>
-</div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-icon"><i class="fa-solid fa-school"></i></div>
+        <div class="timeline-content">
+          <h3>Intermediate – BISE Multan</h3>
+          <p>2020 – 2022</p>
+          <p>868 / 1100</p>
+        </div>
+      </div>
 
-<div class="timeline">
+      <div class="timeline-item fade-up">
+        <div class="timeline-icon"><i class="fa-solid fa-award"></i></div>
+        <div class="timeline-content">
+          <h3>Matriculation – BISE Multan</h3>
+          <p>2018 – 2020</p>
+          <p>942 / 1100</p>
+        </div>
+      </div>
 
-<div class="timeline-item">
-
-<div class="timeline-icon">
-<i class="fa-solid fa-graduation-cap"></i>
-</div>
-
-<div class="timeline-content">
-<h3>BS Mathematics – BZU</h3>
-<p>2022 – 2026</p>
-<p>CGPA: 3.57 / 4.00</p>
-</div>
-
-</div>
-
-<div class="timeline-item">
-
-<div class="timeline-icon">
-<i class="fa-solid fa-school"></i>
-</div>
-
-<div class="timeline-content">
-<h3>Intermediate – BISE Multan</h3>
-<p>2020 – 2022</p>
-<p>868 / 1100</p>
-</div>
-
-</div>
-
-<div class="timeline-item">
-
-<div class="timeline-icon">
-<i class="fa-solid fa-award"></i>
-</div>
-
-<div class="timeline-content">
-<h3>Matriculation – BISE Multan</h3>
-<p>2018 – 2020</p>
-<p>942 / 1100</p>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
-
 <section id="contact">
+  <div class="container">
+    <div class="section-title fade-up"><h2>Contact Me</h2></div>
+    <div class="contact-grid">
 
-<div class="container">
+      <div class="contact-card fade-up">
+        <i class="fa-solid fa-envelope"></i>
+        <h3>Email</h3>
+        <a href="mailto:parveenasia622@gmail.com">parveenasia622@gmail.com</a>
+      </div>
 
-<div class="section-title">
-<h2>Contact Me</h2>
-</div>
+      <div class="contact-card fade-up">
+        <i class="fa-solid fa-phone"></i>
+        <h3>Phone</h3>
+        <a href="tel:+923196195323">03196195323</a>
+      </div>
 
-<div class="contact-grid">
+      <div class="contact-card fade-up">
+        <i class="fa-brands fa-linkedin"></i>
+        <h3>LinkedIn</h3>
+        <a href="https://www.linkedin.com/in/asia-parveen-37a502371" target="_blank">Visit Profile</a>
+      </div>
 
-<div class="contact-card">
-<i class="fa-solid fa-envelope"></i>
-<h3>Email</h3>
-<a href="mailto:parveenasia622@gmail.com">
-parveenasia622@gmail.com
-</a>
-</div>
-
-<div class="contact-card">
-<i class="fa-solid fa-phone"></i>
-<h3>Phone</h3>
-<a href="tel:+923196195323">
-03196195323
-</a>
-</div>
-
-<div class="contact-card">
-<i class="fa-brands fa-linkedin"></i>
-<h3>LinkedIn</h3>
-<a href="https://www.linkedin.com/in/asia-parveen-37a502371">
-Visit Profile
-</a>
-</div>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
 
 <footer>
-© 2026 Asia Parveen — Designed with passion and professionalism
+  © 2026 Asia Parveen — Designed with passion and professionalism
 </footer>
+
+<script>
+// Mobile menu
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+// Scroll animations
+const elements = document.querySelectorAll(".fade-up, .fade-in");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add("show");
+  });
+}, { threshold: 0.15 });
+elements.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
