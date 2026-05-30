@@ -47,7 +47,7 @@ section{
   padding:100px 0;
 }
 
-/* ── Background blurs ── */
+/* Background blurs */
 .bg-blur{
   position:fixed;
   border-radius:50%;
@@ -59,7 +59,7 @@ section{
 .blur2{ width:300px;height:300px;background:#8B5CF655;right:-100px;top:250px; }
 .blur3{ width:300px;height:300px;background:#10B98155;bottom:-100px;left:35%; }
 
-/* ── Header ── */
+/* Header */
 header{
   position:fixed;
   width:100%;
@@ -96,7 +96,7 @@ nav{
 
 .menu-btn{ display:none;font-size:25px;cursor:pointer; }
 
-/* ── Hero ── */
+/* Hero */
 .hero{
   min-height:100vh;
   display:flex;
@@ -105,10 +105,12 @@ nav{
 }
 
 .hero-content{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:50px;
-  align-items:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  max-width:800px;
+  margin:auto;
+  text-align:center;
 }
 
 .tag{ color:var(--royal);font-weight:600;margin-bottom:15px; }
@@ -118,7 +120,7 @@ nav{
 .hero h2{ margin:20px 0;color:var(--muted); }
 .hero p{ line-height:1.9;margin-bottom:35px;font-size:18px; }
 
-.buttons{ display:flex;gap:15px;flex-wrap:wrap; }
+.buttons{ display:flex;gap:15px;flex-wrap:wrap;justify-content:center; }
 
 .btn{
   padding:14px 28px;
@@ -134,33 +136,7 @@ nav{
 .linkedin{ background:linear-gradient(to right,var(--royal),var(--purple));color:white; }
 .btn:hover{ transform:translateY(-5px); }
 
-/* ── Profile Avatar (initials) ── */
-.hero-image{ display:flex;justify-content:center; }
-
-.avatar-circle{
-  width:380px;
-  height:380px;
-  border-radius:50%;
-  border:6px solid rgba(255,255,255,0.7);
-  box-shadow:0 20px 60px rgba(37,99,235,0.35), 0 0 0 10px rgba(37,99,235,0.08);
-  overflow:hidden;
-  position:relative;
-  transition:.4s;
-}
-
-.avatar-circle:hover{
-  transform:scale(1.04);
-  box-shadow:0 28px 70px rgba(37,99,235,0.45), 0 0 0 12px rgba(37,99,235,0.12);
-}
-
-.avatar-circle img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center top;
-}
-
-/* ── Section title ── */
+/* Section title */
 .section-title{
   text-align:center;
   margin-bottom:60px;
@@ -168,45 +144,14 @@ nav{
 
 .section-title h2{ font-size:42px; }
 
-/* ── About ── */
+/* About */
 .about-grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:50px;
-  align-items:center;
-}
-
-/* About section layout fix */
-.about-grid{
-  display:grid;
-  grid-template-columns:1fr 1.4fr;
-  gap:60px;
+  grid-template-columns:1fr;
+  gap:40px;
   align-items:start;
-}
-
-/* About image - circular like hero */
-.about-visual{
-  width:100%;
-  aspect-ratio:1/1;
-  border-radius:50%;
-  overflow:hidden;
-  box-shadow:0 20px 50px rgba(37,99,235,0.25);
-  border:5px solid rgba(255,255,255,0.8);
-  transition:.4s;
-  max-width:380px;
+  max-width:850px;
   margin:auto;
-}
-
-.about-visual:hover{
-  transform:translateY(-6px) scale(1.03);
-  box-shadow:0 30px 60px rgba(37,99,235,0.3);
-}
-
-.about-visual img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center top;
 }
 
 .about-text h3{
@@ -256,7 +201,7 @@ nav{
   flex-shrink:0;
 }
 
-/* ── Skills ── */
+/* Skills */
 .skills-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -280,7 +225,7 @@ nav{
 
 .skill-card i{ font-size:42px;margin-bottom:15px;color:var(--royal); }
 
-/* ── Achievement Cards (NO images) ── */
+/* Achievement Cards */
 .projects-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -299,7 +244,6 @@ nav{
 
 .project-card:hover{ transform:translateY(-10px); }
 
-/* Icon banner replaces image */
 .project-icon-banner{
   width:100%;
   height:140px;
@@ -327,8 +271,7 @@ nav{
   box-shadow:0 0 30px rgba(16,185,129,0.3);
 }
 
-/* ── Education timeline ── */
-/* ── Improved Timeline ── */
+/* Education timeline */
 .timeline{
   position:relative;
   max-width:900px;
@@ -448,7 +391,7 @@ nav{
 
 .timeline-content .edu-badge i{ font-size:11px; }
 
-/* ── Contact ── */
+/* Contact */
 .contact-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -476,7 +419,7 @@ footer{
   padding:30px;
 }
 
-/* ── Scroll animations ── */
+/* Scroll animations */
 .fade-up,.fade-in{
   opacity:0;
   transform:translateY(40px);
@@ -484,7 +427,7 @@ footer{
 }
 .show{ opacity:1;transform:translateY(0); }
 
-/* ── FYP Section ── */
+/* FYP Section */
 .fyp-hero{
   background:linear-gradient(135deg,var(--navy) 0%,#1e3a6e 50%,#0f2347 100%);
   border-radius:28px;
@@ -690,24 +633,11 @@ footer{
   font-weight:700;font-size:14px;
 }
 
-/* ── Responsive ── */
+/* Responsive */
 @media(max-width:992px){
   .fyp-hero{ padding:35px 25px; }
   .fyp-hero h3{ font-size:26px; }
-}
-  .hero-content,.about-grid{ grid-template-columns:1fr; }
-  .hero{ text-align:center; }
-  .buttons{ justify-content:center; }
-  .avatar-circle{ width:280px;height:280px; }
-
-  .timeline::before{ left:22px; }
-  .timeline-item{
-    width:100%;
-    left:0 !important;
-    text-align:left !important;
-    padding:15px 10px 15px 72px !important;
-  }
-  .timeline-icon{ left:-1px !important;right:auto !important; }
+  .hero h1{ font-size:48px; }
 }
 
 @media(max-width:768px){
@@ -720,11 +650,23 @@ footer{
     flex-direction:column;
     padding:30px;
     transition:.4s;
+    z-index:999;
   }
   .nav-links.active{ left:0; }
   .menu-btn{ display:block; }
-  .hero h1{ font-size:46px; }
+  .hero h1{ font-size:38px; }
   .section-title h2{ font-size:32px; }
+
+  .timeline::before{ left:22px; }
+  .timeline-item{
+    width:100%;
+    left:0 !important;
+    text-align:left !important;
+    padding:15px 10px 15px 72px !important;
+  }
+  .timeline-icon{ left:-1px !important;right:auto !important; }
+
+  .about-highlights{ grid-template-columns:1fr; }
 }
 
 </style>
@@ -756,9 +698,8 @@ footer{
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="container hero-content">
-
-    <div class="fade-up">
+  <div class="container">
+    <div class="hero-content fade-up">
       <p class="tag">Aspiring Data Analyst</p>
       <h1>Hi, I'm <span>Asia Parveen</span></h1>
       <h2>BS Mathematics Student</h2>
@@ -769,14 +710,6 @@ footer{
         <a href="https://www.linkedin.com/in/asia-parveen-37a502371" target="_blank" class="btn linkedin">LinkedIn</a>
       </div>
     </div>
-
-    <!-- Profile Picture -->
-    <div class="hero-image fade-in">
-      <div class="avatar-circle">
-        <img src="profile.png" alt="Asia Parveen">
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -787,35 +720,23 @@ footer{
       <h2>About Me</h2>
     </div>
     <div class="about-grid">
-
-      <div class="about-visual fade-up">
-        <img src="profile.png" alt="Asia Parveen">
-      </div>
-
       <div class="about-text fade-up">
-
         <h3>Asia Parveen — BS Mathematics Student & Aspiring Data Analyst</h3>
-
         <p>
           I am a highly motivated and detail-oriented final-year BS Mathematics student at Bahauddin Zakariya University (BZU), Multan, enrolled in the Centre for Advanced Studies in Pure and Applied Mathematics (CASPAM). With a strong CGPA of 3.57/4.00, I have consistently demonstrated academic excellence — earning 1st position in Semester 7 and 3rd position in Semester 5.
         </p>
-
         <p>
           My academic journey has equipped me with a solid foundation in pure and applied mathematics, statistical analysis, and computational modeling. I am deeply passionate about data analysis and visualization — turning raw, complex datasets into clear, meaningful insights that drive real-world decisions.
         </p>
-
         <p>
           Beyond academics, I have gained hands-on professional experience through a 6-week internship at MCB Bank Limited, Multan, where I developed an understanding of financial operations, customer service, and organizational workflows. I also served as Vice President of the CASPAM Welfare Council, demonstrating my leadership and teamwork abilities.
         </p>
-
         <p>
           For my Final Year Project, I led the development of the <strong>University AI Analytics Agent</strong> — an intelligent conversational system powered by LLaMA 3.3-70B, RAG retrieval, FAISS, and Machine Learning, built to analyze university academic data through natural language queries.
         </p>
-
         <p>
           I am a continuous learner who believes in combining technical skills with creative thinking. I hold certifications in Graphic Designing, AI Image Generation, and Video Editing, and I am always looking for opportunities to grow professionally and contribute meaningfully.
         </p>
-
         <div class="about-highlights">
           <div class="highlight-item"><i class="fa-solid fa-graduation-cap"></i> CGPA: 3.57 / 4.00</div>
           <div class="highlight-item"><i class="fa-solid fa-trophy"></i> 1st Position — Sem 7</div>
@@ -826,9 +747,7 @@ footer{
           <div class="highlight-item"><i class="fa-solid fa-crown"></i> Vice President CASPAM</div>
           <div class="highlight-item"><i class="fa-solid fa-globe"></i> Portfolio Website</div>
         </div>
-
       </div>
-
     </div>
   </div>
 </section>
@@ -851,16 +770,14 @@ footer{
   </div>
 </section>
 
-<!-- ACHIEVEMENTS — ✅ FIX 2: No images, icon banners instead -->
+<!-- ACHIEVEMENTS -->
 <section id="projects">
   <div class="container">
     <div class="section-title fade-up"><h2>Projects & Achievements</h2></div>
     <div class="projects-grid">
 
       <div class="project-card fade-up">
-        <div class="project-icon-banner">
-          <i class="fa-solid fa-pen-nib"></i>
-        </div>
+        <div class="project-icon-banner"><i class="fa-solid fa-pen-nib"></i></div>
         <div class="project-content">
           <h3>Graphic Designing</h3>
           <p>Canva designing certification from Z-S Learning Institute.</p>
@@ -868,9 +785,7 @@ footer{
       </div>
 
       <div class="project-card fade-up">
-        <div class="project-icon-banner">
-          <i class="fa-solid fa-wand-magic-sparkles"></i>
-        </div>
+        <div class="project-icon-banner"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
         <div class="project-content">
           <h3>AI Image Generation</h3>
           <p>AI creative image generation certification.</p>
@@ -878,9 +793,7 @@ footer{
       </div>
 
       <div class="project-card fade-up">
-        <div class="project-icon-banner">
-          <i class="fa-solid fa-film"></i>
-        </div>
+        <div class="project-icon-banner"><i class="fa-solid fa-film"></i></div>
         <div class="project-content">
           <h3>Video Editing</h3>
           <p>Professional video editing and multimedia production.</p>
@@ -888,9 +801,7 @@ footer{
       </div>
 
       <div class="project-card fade-up">
-        <div class="project-icon-banner">
-          <i class="fa-solid fa-crown"></i>
-        </div>
+        <div class="project-icon-banner"><i class="fa-solid fa-crown"></i></div>
         <div class="project-content">
           <h3>Vice President</h3>
           <p>Caspam Welfare Council leadership recognition.</p>
@@ -898,9 +809,7 @@ footer{
       </div>
 
       <div class="project-card fade-up">
-        <div class="project-icon-banner">
-          <i class="fa-solid fa-medal"></i>
-        </div>
+        <div class="project-icon-banner"><i class="fa-solid fa-medal"></i></div>
         <div class="project-content">
           <h3>Silver Medal</h3>
           <p>Academic excellence award in matriculation.</p>
@@ -908,9 +817,7 @@ footer{
       </div>
 
       <div class="project-card featured fade-up">
-        <div class="project-icon-banner">
-          <i class="fa-solid fa-trophy"></i>
-        </div>
+        <div class="project-icon-banner"><i class="fa-solid fa-trophy"></i></div>
         <div class="project-content">
           <h3>1st Position – Semester 7</h3>
           <p>Outstanding academic achievement at BZU.</p>
@@ -934,12 +841,8 @@ footer{
 <!-- FINAL YEAR PROJECT -->
 <section id="fyp">
   <div class="container">
+    <div class="section-title fade-up"><h2>Final Year Project</h2></div>
 
-    <div class="section-title fade-up">
-      <h2>Final Year Project</h2>
-    </div>
-
-    <!-- Hero Banner -->
     <div class="fyp-hero fade-up">
       <div class="fyp-badge">🎓 BZU · CASPAM · Session 2022–2026</div>
       <h3>University <span>AI Analytics Agent</span></h3>
@@ -954,10 +857,7 @@ footer{
       </p>
     </div>
 
-    <!-- 4 info cards -->
     <div class="fyp-cards-row">
-
-      <!-- Problem Statement -->
       <div class="fyp-card fade-up">
         <div class="fyp-card-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
         <h4>Problem Statement</h4>
@@ -969,7 +869,6 @@ footer{
         </ul>
       </div>
 
-      <!-- System Architecture -->
       <div class="fyp-card fade-up">
         <div class="fyp-card-icon"><i class="fa-solid fa-sitemap"></i></div>
         <h4>System Architecture</h4>
@@ -983,7 +882,6 @@ footer{
         </ul>
       </div>
 
-      <!-- Key Features -->
       <div class="fyp-card fade-up">
         <div class="fyp-card-icon"><i class="fa-solid fa-star"></i></div>
         <h4>Key Features</h4>
@@ -999,7 +897,6 @@ footer{
         </ul>
       </div>
 
-      <!-- 8 Agent Tools -->
       <div class="fyp-card fade-up">
         <div class="fyp-card-icon"><i class="fa-solid fa-wrench"></i></div>
         <h4>8 AI Agent Tools</h4>
@@ -1014,10 +911,8 @@ footer{
           <li>predict_student_performance()</li>
         </ul>
       </div>
-
     </div>
 
-    <!-- Tech Stack -->
     <div class="fyp-card fade-up" style="margin-bottom:25px;">
       <div class="fyp-card-icon"><i class="fa-solid fa-code"></i></div>
       <h4>Technologies Used</h4>
@@ -1035,7 +930,6 @@ footer{
       </div>
     </div>
 
-    <!-- Visual Analytics -->
     <div class="fyp-card fade-up" style="margin-bottom:25px;">
       <div class="fyp-card-icon" style="background:linear-gradient(135deg,#f59e0b,#ef4444)"><i class="fa-solid fa-chart-bar"></i></div>
       <h4>Visual Analytics Capabilities</h4>
@@ -1049,7 +943,6 @@ footer{
       </div>
     </div>
 
-    <!-- Team -->
     <div class="fyp-card fade-up">
       <div class="fyp-card-icon" style="background:linear-gradient(135deg,var(--emerald),var(--royal))"><i class="fa-solid fa-users"></i></div>
       <h4>Project Team</h4>
@@ -1069,7 +962,6 @@ footer{
     <div class="section-title fade-up"><h2>Education</h2></div>
     <div class="timeline">
 
-      <!-- BZU BS Mathematics -->
       <div class="timeline-item fade-up">
         <div class="timeline-icon"><i class="fa-solid fa-graduation-cap"></i></div>
         <div class="timeline-content">
@@ -1082,7 +974,6 @@ footer{
         </div>
       </div>
 
-      <!-- Intermediate -->
       <div class="timeline-item fade-up">
         <div class="timeline-icon" style="background:linear-gradient(135deg,var(--purple),#c084fc)"><i class="fa-solid fa-school"></i></div>
         <div class="timeline-content">
@@ -1093,7 +984,6 @@ footer{
         </div>
       </div>
 
-      <!-- Matric -->
       <div class="timeline-item fade-up">
         <div class="timeline-icon" style="background:linear-gradient(135deg,var(--emerald),#34d399)"><i class="fa-solid fa-award"></i></div>
         <div class="timeline-content">
@@ -1141,14 +1031,12 @@ footer{
 </footer>
 
 <script>
-// Mobile menu
 const menuBtn = document.querySelector(".menu-btn");
 const navLinks = document.querySelector(".nav-links");
 menuBtn.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
 
-// Scroll animations
 const elements = document.querySelectorAll(".fade-up, .fade-in");
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
